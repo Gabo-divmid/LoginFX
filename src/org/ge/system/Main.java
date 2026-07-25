@@ -19,7 +19,6 @@ public class Main extends Application{
 
     @Override
     public void start(Stage escenarioPrincipal) throws Exception {
-
         Parent raiz = FXMLLoader.load(
                 getClass().getResource("/org/ge/view/InicioSesionView.fxml"));        
         Scene escena = new Scene(raiz);
