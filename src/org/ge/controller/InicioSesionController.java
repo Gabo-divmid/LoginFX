@@ -74,7 +74,7 @@ public class InicioSesionController implements Initializable {
 
         switch (usuario.getRol().toLowerCase()) {
             case "admin":
-                rutaFXML = "/org/ac/view/AdminDashboradView.fxml";
+                rutaFXML = "/org/ge/view/AdminDashboradView.fxml";
                 tituloDashboard = "Panel de Administración";
                 break;
             case "empleado":
