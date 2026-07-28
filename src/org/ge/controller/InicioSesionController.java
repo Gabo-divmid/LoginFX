@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package org.ge.controller;
 
 import java.io.IOException;
@@ -40,7 +37,6 @@ public class InicioSesionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         usuarioDAO = new UsuarioDAO();
         lblMensaje.setText("");
-        //btnIniciarSesion.setOnAction(e -> eventoInicioSesion());
 
     }
 
@@ -60,7 +56,7 @@ public class InicioSesionController implements Initializable {
         Usuario usuarioIniciado = usuarioDAO.IniciarSesion(usuario, passwordHash);
         // ! =
         if (usuarioIniciado != null) {
-            //lblMensaje.setStyle("-fx-background-color: #60682e;");
+      
             lblMensaje.setText("Inicio correcto");
             abrirDashboard(usuarioIniciado);
         } else {
@@ -74,14 +70,22 @@ public class InicioSesionController implements Initializable {
 
         switch (usuario.getRol().toLowerCase()) {
             case "admin":
-                rutaFXML = "/org/ge/view/AdminDashboradView.fxml";
+                rutaFXML = "/org/ge/view/AdminDashBoardView.fxml";
                 tituloDashboard = "Panel de Administración";
                 break;
-            case "empleado":
-
+           case "empleado":
+                rutaFXML = "/org/ge/view/EmpleadoDashBoardView.fxml";
+                tituloDashboard = "Panel de Empleado";
                 break;
-
+            case "cajero":
+                rutaFXML = "/org/ge/view/CajeroDashBoardView.fxml";
+                tituloDashboard = "Panel de Cajero";
+                break;
+            default:
+                lblMensaje.setText("Rol no reconocido");
+                return;
         }
+        
         try {
             FXMLLoader cargadorFXML = new FXMLLoader(getClass().getResource(rutaFXML));
             Parent raiz = cargadorFXML.load();
