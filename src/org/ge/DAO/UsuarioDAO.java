@@ -10,7 +10,7 @@ import org.ge.model.Usuario;
 
 
 public class UsuarioDAO {    
-    public Usuario iniciarSesion(String usernarme, String passwordHash){                
+    public Usuario IniciarSesion(String usernarme, String passwordHash){                
         Usuario usuario = null;
         String sql = "{call sp_iniciar_sesion(?,?)}";
 

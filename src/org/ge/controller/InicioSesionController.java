@@ -57,7 +57,7 @@ public class InicioSesionController implements Initializable {
         //Datos completos
         String passwordHash = SecurityUtil.hashSHA256(password);
         //llamar al dato para iniciar sesion
-        Usuario usuarioIniciado = usuarioDAO.iniciarSesion(usuario, passwordHash);
+        Usuario usuarioIniciado = usuarioDAO.IniciarSesion(usuario, passwordHash);
         // ! =
         if (usuarioIniciado != null) {
             //lblMensaje.setStyle("-fx-background-color: #60682e;");
@@ -86,8 +86,8 @@ public class InicioSesionController implements Initializable {
             FXMLLoader cargadorFXML = new FXMLLoader(getClass().getResource(rutaFXML));
             Parent raiz = cargadorFXML.load();
             
-            AdminDashboradController controlado = cargadorFXML.getController();
-            controlado.iniciarUsuario(usuario);            
+            AdminDashBoardController controlado = cargadorFXML.getController();
+            controlado.IniciarUsuario(usuario);            
             
             Stage escenario = new Stage();
             escenario.setScene(new Scene(raiz));
