@@ -1,12 +1,12 @@
 
 package org.ge.DAO;
 
-import org.ac.model.Usuario;
-import org.ac.util.Conexion;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.CallableStatement;
+import org.ge.Utils.Conexion;
+import org.ge.model.Usuario;
 
 
 public class UsuarioDAO {    
@@ -32,4 +32,8 @@ public class UsuarioDAO {
             }            
         } catch (SQLException e) {
       
-}
+  }
+            
+      
+     
+    
